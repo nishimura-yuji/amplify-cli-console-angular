@@ -1,4 +1,13 @@
 version: 0.1
+
+backend:
+  phases:
+    build:
+      commands:
+        - export STACKINFO="$(envCache --get stackInfo)"
+        - amplifyPush --environment $AWS_BRANCH
+        - envCache --set stackInfo "$(amplify env get --json --name $AWS_BRANCH)"
+
 frontend:
   phases:
     preBuild:
