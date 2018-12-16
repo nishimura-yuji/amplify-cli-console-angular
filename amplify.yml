@@ -6,6 +6,7 @@ frontend:
         - yarn install
         - export PATH=$PATH:$PWD/node_modules/.bin/
         - ls /usr/bin/
+        - which google-chrome
         - ng test --watch=false
         - ng e2e
     build:
