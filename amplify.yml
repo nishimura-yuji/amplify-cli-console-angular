@@ -4,6 +4,7 @@ frontend:
     preBuild:
       commands:
         - yarn install
+        - export PATH=$PATH:$PWD/node_modules/.bin/
         - ng test --watch=false
         - ng e2e
     build:
