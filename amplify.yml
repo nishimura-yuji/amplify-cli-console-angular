@@ -5,6 +5,7 @@ frontend:
       commands:
         - yarn install
         - export PATH=$PATH:$PWD/node_modules/.bin/
+        - ls /usr/bin/
         - ng test --watch=false
         - ng e2e
     build:
