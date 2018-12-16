@@ -1,10 +1,14 @@
 version: 0.1
+build:
+  phases:
+    preBuild:
+      commands:
+        - yum -y install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 frontend:
   phases:
     preBuild:
       commands:
         - yarn install
-        - sudo yum -y install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
         - export PATH=$PATH:$PWD/node_modules/.bin/
         - ng test --watch=false
         - ng e2e
