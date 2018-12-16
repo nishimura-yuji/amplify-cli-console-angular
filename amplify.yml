@@ -1,13 +1,4 @@
 version: 0.1
-
-backend:
-  phases:
-    build:
-      commands:
-        - export STACKINFO="$(envCache --get stackInfo)"
-        - amplifyPush --environment $AWS_BRANCH
-        - envCache --set stackInfo "$(amplify env get --json --name $AWS_BRANCH)"
-
 frontend:
   phases:
     preBuild:
@@ -19,7 +10,7 @@ frontend:
         - ng e2e
     build:
       commands:
-        - ng build --prod
+        - sh ./build.sh
   artifacts:
     baseDirectory: dist/amplify-cli-console-angular
     files:
